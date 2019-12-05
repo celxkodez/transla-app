@@ -1,5 +1,7 @@
 //initialize speech recognition API
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+// var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+// var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
 const recognition = new SpeechRecognition(); //initialize my instance of speech recognition
 recognition.interimResults = true; //return results while still working on current recognition
@@ -8,6 +10,8 @@ recognition.interimResults = true; //return results while still working on curre
 let p = document.createElement("p")
 const words = document.querySelector(".words-container")
 // words.appendChild(p)
+let speechText = document.querySelector('#speechText');
+let out = '';
 
 //I want to select and change the color of the body, but this could be any HTML element on your page
 // let body = document.querySelector("body")
@@ -24,22 +28,21 @@ recognition.addEventListener("result", e => {
   .map(result => result[0])
   .map(result => result.transcript)
   .join("")
-  // p.innerText = transcript
+  out = transcript
 
   //once speech recognition determines it has a final result, create a new paragraph and append it to the words-container
   //this way every time you add a new p to hold your speech-to-text every time you're finished with the previous results
   if (e.results[0].isFinal) {
-    p = document.createElement("p")
-    words.appendChild(p)
+   speechText.value = out;
   }
   //for each result, map through all color names and check if current result (transcript) contains that color
   //i.e. see if a person said any color name you know
-  CSS_COLORS.forEach(color => {
-    //if find a match, change your background color to that color
-    if (transcript.includes(color)) {
-      body.style.backgroundColor = color;
-    }
-  }) 
+  // CSS_COLORS.forEach(color => {
+  //   //if find a match, change your background color to that color
+  //   if (transcript.includes(color)) {
+  //     body.style.backgroundColor = color;
+  //   }
+  // }) 
 })
 
 //add your functionality to the start and stop buttons
@@ -97,7 +100,7 @@ const speak = () => {
   }
 
   if (textArea.value !== ' '){
-    const speakText = new SpeechSynthesisUtterance(textArea.value);
+    var speakText = new SpeechSynthesisUtterance(textArea.value);
     speakText.onend = e => {
       console.log('done speaking');
     }
@@ -140,19 +143,25 @@ pitch.addEventListener('change', e => {
   document.querySelector('.pitch').innerHTML = pitch.value;
 });
 
-document.querySelector('#speak').addEventListener('click', speak );
+document.querySelector('#speak').addEventListener('click', e => {
+e.preventDefault();
+speak();
+});
 
 
+//DOM MANIPULATIONS 
 
+let textToSpeech = document.querySelector('#textToSpeech');
+let speechToText = document.querySelector('#speechToText');
 
-// new Vue({
-//   el: '#app',
-//   data: {
-//       greet: 'hello from this other side',
-//       displayAbles: {
-        
-//       }
-//   }
+let buttons = document.querySelectorAll('.btnLink');
 
+buttons[0].addEventListener('click', e => {
+  speechToText.classList.remove('off');
+  textToSpeech.classList.add('off');
+});
 
-// });
+buttons[1].addEventListener('click', e => {
+  textToSpeech.classList.remove('off');
+  speechToText.classList.add('off');
+  })

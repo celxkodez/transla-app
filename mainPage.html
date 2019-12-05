@@ -252,14 +252,20 @@ label {
   font-weight: bold;
 }
 /* #textToSpeech { */
-#speechToText{
+/* #speechToText{
   display: none;
-}
+} */
 input[type=range] {
   display: block;
   margin: auto;
   margin-top: 12px;
   margin-bottom: 12px;
+}
+.active {
+  display: block;
+}
+.off {
+  display: none;
 }
   </style>
 </head>
@@ -283,7 +289,7 @@ input[type=range] {
 
   <!-- FOR THE DIRECTIVES -->
   <section>
-      <div class="container">
+      <div id="app"class="container">
         <div class="bg">
             <div class="content">
 
@@ -322,7 +328,7 @@ input[type=range] {
                   <!-- THE APP SECTIONS -->
 
                   <!-- speech to text here -->
-         <div class="app" id="speechToText">
+         <div class="app"  id="speechToText">
             <div class="controls">
               <select name="" id="">
                 <option value="">language 1</option>
@@ -332,19 +338,22 @@ input[type=range] {
                 <option value="">language 5</option>
               </select>
       
-              <button class="btnFunc">Start <i class="fa fa-microphone"></i></button>
+              <button class="btnFunc" onclick="startRecording()">
+                  Start 
+                  <i class="fa fa-microphone"></i>
+                </button>
             </div>
       
-            <textarea name="" id="" cols="30" rows="10" 
+            <textarea name="" id="speechText" cols="30" rows="10" 
               placeholder="Please turn on your microphone and speak through the microphone......."></textarea>
       
-            <button class="btnFunc">stop <i class="fa fa-stop"></i></button>
+            <button class="btnFunc" onclick="stopRecording()>stop <i class="fa fa-stop"></i></button>
          </div>
 
 
 
          <!-- text to speech here  -->
-         <div class="app" id="textToSpeech">
+         <div class="app off"  id="textToSpeech">
       
             <textarea name="" id="textArea" cols="30" rows="10" 
               placeholder="Input your text here....."></textarea>
@@ -361,7 +370,7 @@ input[type=range] {
       
 
         </div>
-
+        
           </div>
     </section>
 
@@ -381,6 +390,7 @@ input[type=range] {
     </div>
 
   </footer>
+  <!-- <script src="vue.js"></script> -->
   <script src="mainalt.js"></script>
   
 </body>
