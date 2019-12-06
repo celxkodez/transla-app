@@ -135,15 +135,25 @@ speak();
 
 let textToSpeech = document.querySelector('#textToSpeech');
 let speechToText = document.querySelector('#speechToText');
+let note = document.querySelector('#note');
 
 let buttons = document.querySelectorAll('.btnLink');
 
 buttons[0].addEventListener('click', e => {
   speechToText.classList.remove('off');
   textToSpeech.classList.add('off');
+  note.classList.add('off');
+
 });
 
 buttons[1].addEventListener('click', e => {
   textToSpeech.classList.remove('off');
   speechToText.classList.add('off');
-  })
+  note.classList.add('off');
+  });
+
+  buttons[2].addEventListener('click', e => {
+    textToSpeech.classList.add('off');
+    speechToText.classList.add('off');
+    note.classList.remove('off');
+    })
