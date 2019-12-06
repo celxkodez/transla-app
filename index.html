@@ -159,6 +159,7 @@ body {
 .app {
   width: 43%;
   margin-left: 46%;
+  overflow: hidden;
 }
 
 .btnFunc {
@@ -187,12 +188,18 @@ body {
   width: 40%;
   margin: auto;
 }
-.app textarea {
+.app textarea,
+.app input {
   display: block;
   margin: auto;
+  padding: 12px;
+  font-size: 20px;
   border-radius: 5px;
   border-color: #5d65ec80;
 
+}
+.app input {
+  margin-bottom: 10px;
 }
 @media only screen and (max-width: 600px){
   .app {
@@ -266,6 +273,7 @@ input[type=range] {
 }
 .off {
   display: none;
+  /* transition: 7s; */
 }
   </style>
 </head>
@@ -355,7 +363,7 @@ input[type=range] {
          <!-- text to speech here  -->
          <div class="app off"  id="textToSpeech">
       
-            <textarea name="" id="textArea" cols="30" rows="10" 
+            <textarea name="" id="textArea" cols="30" rows="5" 
               placeholder="Input your text here....."></textarea>
               <div class="controls">
                 <label for="rate">Rate <span class="badge rate">0</span></label>
@@ -375,6 +383,7 @@ input[type=range] {
         <!-- FOR THE NOTE -->
         <div class="app off"  id="note">
       
+          <input type="text" id="notetitle" placeholder="Note Title....">
           <textarea name="" id="noteText" cols="30" rows="10" 
             placeholder="note body here....."></textarea>
             <!-- <div class="controls">
