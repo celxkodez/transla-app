@@ -26,13 +26,13 @@ recognition.addEventListener("result", e => {
   }
 })
 
-speechText.value += textFin;
-
 function startRecording() {
   recognition.start();
   recognition.addEventListener("end", recognition.start);
+  speakText.value = speechText.value + textFin;
 
   document.getElementById("stop").addEventListener("click", stopRecording)
+
 }
 
 function stopRecording() {
