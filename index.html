@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TranslaApp</title>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="appstyle.css">
   <style>
     :root {
   --main-color:  #2f2cee;
@@ -382,7 +383,7 @@ input[type=range] {
 
         <!-- FOR THE NOTE -->
         <div class="app off"  id="note">
-      
+          <button class="note-btn" id="open-note"><i class="fa fa-edit"></i> </button>
           <input type="text" id="notetitle" placeholder="Note Title....">
           <textarea name="" id="noteText" cols="30" rows="10" 
             placeholder="note body here....."></textarea>
@@ -398,6 +399,9 @@ input[type=range] {
       </div>
         
           </div>
+
+
+          
     </section>
 
 
@@ -416,6 +420,21 @@ input[type=range] {
     </div>
 
   </footer>
+  <div id="notelist">
+    <button class="note-close note-btn">
+      <i class="fa fa-close"></i>
+    </button>
+      <div id="note-listings">
+          <h3>oops sorry! you have not saved any notes yet!</h3>
+
+      </div>
+
+     
+      
+    
+    
+
+  </div>
   <!-- <script src="vue.js"></script> -->
   <script src="main.js"></script>
   

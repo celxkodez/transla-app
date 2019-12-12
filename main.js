@@ -157,3 +157,34 @@ buttons[1].addEventListener('click', e => {
     speechToText.classList.add('off');
     note.classList.remove('off');
     })
+
+
+    // FOR THE NOTE SECTIONS
+
+    document.querySelector('#open-note').addEventListener('click', e => {
+
+      document.querySelector('#notelist').classList.add('note-display');
+    } );
+
+    document.querySelector('.note-close').addEventListener('click', e => {
+      document.querySelector('#notelist').classList.remove('note-display');
+    });
+
+    function saveNote(){
+      let title = document.createElement('h4');
+      let bodyOfNote = document.createElement('p');
+
+      let noteWrapper = document.createElement('div');
+      noteWrapper.id = 'notewrapper';
+
+      title.innerHTML = document.querySelector('#notetitle').value;
+      bodyOfNote.innerHTML = document.querySelector('#noteText').value;
+
+      noteWrapper.appendChild(title);
+      noteWrapper.appendChild(bodyOfNote);
+
+      document.querySelector('#note-listings').appendChild(noteWrapper);
+
+    }
+
+    document.querySelector('#savenote').addEventListener('click', saveNote )
