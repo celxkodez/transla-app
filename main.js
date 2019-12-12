@@ -29,7 +29,7 @@ recognition.addEventListener("result", e => {
 function startRecording() {
   recognition.start();
   recognition.addEventListener("end", recognition.start);
-  speechText.value = speechText.value + textFin;
+  speechText.value =  textFin;
 
   document.getElementById("stop").addEventListener("click", stopRecording)
 
