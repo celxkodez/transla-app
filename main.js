@@ -22,7 +22,7 @@ recognition.addEventListener("result", e => {
   
  
   if (e.results[0].isFinal) {
-   textFin = out;
+   textFin = textFin + out;
   }
 });
 
