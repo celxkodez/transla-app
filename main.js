@@ -22,7 +22,7 @@ recognition.addEventListener("result", e => {
   
  
   if (e.results[0].isFinal) {
-    speechText.value =  out;
+    speechText.value = speechText.value + out;
   }
 });
 
