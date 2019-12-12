@@ -9,7 +9,7 @@ recognition.interimResults = true; //return results while still working on curre
 //for the output
 let speechText = document.querySelector('#speechText');
 let out = '';
-
+let textFin =  '';
 
 //once speech recognition determines it has a "result", grab the texts of that result, join all of them, and add to paragraph
 recognition.addEventListener("result", e => {
@@ -22,9 +22,11 @@ recognition.addEventListener("result", e => {
   
  
   if (e.results[0].isFinal) {
-   speechText.value = out;
+   textFin = out;
   }
 })
+
+speechText.value += textFin;
 
 function startRecording() {
   recognition.start();

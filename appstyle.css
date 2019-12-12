@@ -43,6 +43,7 @@
 }
 #note-listings {
   position: relative;
+  height: 100%;
 }
 #note-listings h3 {
   text-align: center;
@@ -54,7 +55,6 @@
   margin: auto;
   height: 20px;
   width: 80%;
-  margin-top: 12px;
   text-align: center;
   border-radius: 1px;
   overflow: hidden;
