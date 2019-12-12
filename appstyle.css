@@ -1,0 +1,66 @@
+.note-btn {
+  border-radius: 100%;
+  background: #2f2ceea8;
+  margin-right: 10px;
+  color: white;
+  padding: 8px 8px;
+  border: none;
+  float: right;
+  /* position: absolute; */
+}
+
+/* note body here */
+
+#notelist {
+  display: none;
+  float: right;
+  position: absolute;
+  background:  #2f2ceea8;
+  /* width: 8px; */
+  width: 90%;
+  height: 0%; 
+  top: 0;
+  left: 10%;
+  -webkit-transition: height 2s;
+  transition: height 2s;
+  bottom: -0%;
+}
+
+.note-display {
+  display: block !important;
+  height: 100% !important;
+
+}
+.note-close {
+  position: relative;
+  float: left;
+  padding: 5px;
+  background: #2f2ceea8;
+  font-size: 20px;
+  border: solid 1px white;
+  border-radius: 5px;
+  z-index: 6;
+}
+#note-listings {
+  position: relative;
+}
+#note-listings h3 {
+  text-align: center;
+  margin: auto;
+  color: white;
+}
+#notewrapper {
+  background: #f0f0f8a8;
+  margin: auto;
+  height: 20px;
+  width: 80%;
+  margin-top: 12px;
+  text-align: center;
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.toggler {
+  height: fit-content !important;
+}
+
